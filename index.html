@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Health Mart</title>
+    <style>
+        /* Reset some styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #047bfb;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(4, 123, 251, 0.5);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .gallery img {
+            height: 280px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 0 0 12px 12px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .info {
+            padding: 30px 40px;
+        }
+
+        .info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #047bfb;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 15px 10px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .details svg {
+            fill: #047bfb;
+        }
+
+        .details a {
+            color: #047bfb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+            color: #0356b2;
+        }
+
+        .open-24 {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 7px rgba(40, 167, 69, 0.5);
+            margin-bottom: 30px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery img {
+                margin-bottom: 15px;
+                width: 90%;
+            }
+
+            .info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Health Mart
+    </header>
+
+    <section class="container">
+        <div class="gallery" aria-label="Health Mart Photos">
+            <img src="https://via.placeholder.com/400x280?text=Store+Front" alt="Health Mart Store Front" />
+            <img src="https://via.placeholder.com/400x280?text=Store+Interior" alt="Health Mart Interior Shelves" />
+        </div>
+        <div class="info">
+            <span class="open-24" aria-label="Open 24 hours">Open 24 hours</span>
+            <h2>Location</h2>
+            
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true" focusable="false"><path d="M12 2C8.14 2 5 5.14 5 9c0 4.25 5.1 11.3 6.25 13.1a.7.7 0 001.5 0C13.9 20.3 19 13.3 19 9c0-3.86-3.14-7-7-7Z"/></svg>
+                <address>Lodha Casa Rio Gold Rd, Gaon, Nilje Gaon, Maharashtra 421204</address>
+            </div>
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true" focusable="false"><path d="M12 2C8.14 2 5 5.14 5 9c0 4.25 5.1 11.3 6.25 13.1a.7.7 0 001.5 0C13.9 20.3 19 13.3 19 9c0-3.86-3.14-7-7-7Z"/></svg>
+                <p>537F+9R Nilje Gaon, Maharashtra</p>
+            </div>
+
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true" focusable="false"><path d="M10 17h4v-2h-4v2Zm7-3v-1h-3V9h-4v4H7v1h3v4h4v-4h3Z"/></svg>
+                <a href="https://healthmart.com" target="_blank" rel="noopener noreferrer">healthmart.com</a>
+            </div>
+
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.1 15.1 0 006.59 6.6l1.92-1.92a1 1 0 0 1 1.06-.21c1.15.46 2.39.71 3.7.71a1 1 0 0 1 1 1v2.18a1 1 0 0 1-1 1C10.37 20 4 13.63 4 6a1 1 0 0 1 1-1h2.18a1 1 0 0 1 1 1c0 1.3.26 2.54.71 3.7a1 1 0 0 1-.21 1.08l-1.06 1.02Z"/></svg>
+                <a href="tel:08451017458">084510 17458</a>
+            </div>
+
+            <div class="details">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-hidden="true" focusable="false"><path d="M4 15a12 12 0 0 0 7 3c5 0 9-4 9-9a8 8 0 0 0-3-6l-4 4-3-3-4 4a12 12 0 0 0-5 7Z"/></svg>
+                <a
