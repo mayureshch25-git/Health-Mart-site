@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Health Mart - Chemist & Lifestyle Store</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f2f6f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #106110;
+      padding: 15px 50px;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(16,97,16,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .logo svg {
+      width: 40px; height: 40px;
+      fill: #6ce08e;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      color: #a9f2a5;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom: 2px solid #6ce08e;
+    }
+    .contact-top {
+      font-size: 0.9rem;
+      color: #cce7cc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .contact-top:hover {
+      color: #fff;
+    }
+    .contact-top svg {
+      width: 18px;
+      height: 18px;
+      fill: #cce7cc;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(rgba(16,97,16,0.7), rgba(16,97,16,0.7)), url('https://i.imgur.com/7Z5pOgB.jpg');
+      background-size: cover;
+      background-position: center center;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #e9f0e9;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .hero p {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero button {
+      background-color: #6ce08e;
+      color: #104010;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 15px 35px;
+      border:none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(108, 224, 142, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero button:hover {
+      box-shadow: 0 8px 25px rgba(108, 224, 142, 0.9);
+      transform: scale(1.05);
+    }
+    .hero button:active {
+      transform: scale(0.98);
+    }
+    .hero button svg {
+      width: 24px; height: 24px;
+      fill: #104010;
+    }
+
+    /* Ratings Section */
+    .ratings-container {
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+    .ratings-container .stars {
+      font-size: 2rem;
+      color: #f8ce0b;
+      letter-spacing: 2px;
+    }
+    .ratings-container .rating-value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-top: 4px;
+      color: #416d29;
+    }
+    .ratings-container .rating-comment {
+      color: #6c757d;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    /* Services Section */
+    section.services {
+      background-color: white;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px 50px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #b1dab8;
+    }
+    section.services h2 {
+      font-size: 2rem;
+      color:#107010;
+      margin-bottom: 25px;
+      font-weight: 700;
+      border-bottom: 3px solid #6ce08e;
+      padding-bottom: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1.2rem;
+      color: #346724;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .service-item svg {
+      width: 28px;
+      height: 28px;
+      fill: #6ce08e;
+      flex-shrink: 0;
+    }
+
+    /* Immediate Assistance Section */
+    .immediate-assist {
+      background: linear-gradient(90deg, #3c8d0d 0%, #96e07f 100%);
+      max-width: 900px;
+      margin: 50px auto;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #74b649bb;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: white;
+      padding: 25px 40px;
+      user-select: none;
+    }
+    .immediate-assist img {
+      width: 220px;
+      height: 150px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 10px #6ce08eaa;
+      border: 2px solid #d0f0c0;
+    }
+    .immediate-assist .assist-content {
+      flex-grow: 1;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+    .immediate-assist .call-btn {
+      background-color: #fff;
+      border: none;
+      font-weight: 800;
+      color: #2c6a0e;
+      padding: 18px 45px;
+      border-radius: 35px;
+      cursor: pointer;
+      font-size: 1.3rem;
+      box-shadow: 0 0 18px #fff;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      min-width: 160px;
+    }
+    .immediate-assist .call-btn:hover {
+      background-color: #d2f9b4;
+      transform: scale(1.1);
+    }
+    .immediate-assist .call-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* FIXED: Best Deal Form - Radio Buttons Now Clickable */
+    form.best-deal-form {
+      background-color: white;
+      max-width: 500px;
+      margin: 50px auto 80px auto;
+      border-radius: 18px;
+      padding: 35px 40px;
+      box-shadow: 0 0 25px #a5d68dbb;
+    }
+    form.best-deal-form h3 {
+      color: #186818;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: 1.5px;
+    }
+    form.best-deal-form .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    form.best-deal-form label {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #3a7a3a;
+      display: block;
+      margin-bottom: 8px;
+    }
+    form.best-deal-form input[type="text"],
+    form.best-deal-form input[type="tel"] {
+      width: 100%;
+      border: 2px solid #72b670;
+      border-radius: 8px;
+      font-size: 1rem;
+      padding: 15px 15px 15px 45px;
+      color: #276327;
+      font-weight: 600;
+      transition: border-color 0.3s ease;
+    }
+    form.best-deal-form input[type="text"]:focus,
+    form.best-deal-form input[type="tel"]:focus {
+      border-color: #3d923b;
+      outline: none;
+      box-shadow: 0 0 10px #7aa878bb;
+    }
+    /* Icons in inputs */
+    .form-group .icon {
+      position: absolute;
+      top: 44px;
+      left: 12px;
+      width: 22px;
+      height: 22px;
+      fill: #4a7f43;
+      pointer-events: none;
+    }
+
+    /* FIXED: Radio Buttons - Now Fully Clickable & Styled */
+    form.best-deal-form .radio-group {
+      display: flex;
+      justify-content: flex-start;
+      gap: 25px;
+      margin-bottom: 30px;
+      color: #3f783f;
+      font-weight: 700;
+      font-size: 1.15rem;
+      position: relative;
+    }
+    
+    /* Custom Radio Button Styling */
+    .radio-group .radio-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      user-select: none;
+    }
+    
+    .radio-group .radio-container:hover {
+      background-color: #f0f8f0;
+      box-shadow: 0 2px 8px rgba(108,224,142,0.3);
+    }
+    
+    .radio-group .radio-container input[type="radio"] {
+      width: 22px !important;
+      height: 22px !important;
+      cursor: pointer;
+      accent-color: #6ce08e;
+      margin: 0;
+      z-index: 2;
+      position: relative;
+    }
+    
+    .radio-group .radio-container label {
+      margin: 0;
+      cursor: pointer;
+      font-weight: 700;
+      color: #3f783f;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .radio-group .radio-container input[type="radio"]:checked + label {
+      color: #106110;
+    }
+    
+    .radio-group .radio-container input[type="radio"]:checked ~ .radio-visual {
+      background-color: #6ce08e;
+      border-color: #6ce08e;
+    }
+    
+    .radio-group .radio-visual {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border: 3px solid #72b670;
+      border-radius: 50%;
+      background-color: white;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+    
+    .radio-group .radio-container input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    button.submit-btn {
+      background: linear-gradient(90deg, #106110 0%, #6ce08e 100%);
+      color: #214d1d;
+      width: 100%;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 18px;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px #73c973cc;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    button.submit-btn:hover {
+      background: linear-gradient(90deg, #74d46c 0%, #3a7413 100%);
+      color: #e9f5e9;
+    }
+    button.submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* How It Works */
+    section.how-it-works {
+      max-width: 840px;
+      margin: 60px auto 80px auto;
+      background-color: white;
+      border-radius: 16px;
+      padding: 40px 50px;
+      box-shadow: 0 0 30px #a4d88fcc;
+    }
+    section.how-it-works h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c6a0e;
+      margin-bottom: 30px;
+      letter-spacing: 1.2px;
+    }
+    section.how-it-works ul {
+      color: #4a7539;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 2.1;
+      list-style-type: none;
+      position: relative;
+      padding-left: 20px;
+    }
+    section.how-it-works ul li {
+      position: relative;
+      margin-bottom: 18px;
+      padding-left: 35px;
+    }
+    section.how-it-works ul li::before {
+      content: '✔';
+      color: #6ce08e;
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #143c03;
+      color: #a2c493;
+      text-align: center;
+      padding: 30px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    footer a {
+      color: #94bd70;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      color: #d7f5ae;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 20px 25px;
+        gap: 15px;
+      }
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      form.best-deal-form, section.services, section.how-it-works {
+        margin: 30px 20px;
+        padding: 25px 25px;
+      }
+      .immediate-assist {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .immediate-assist .call-btn {
+        min-width: 100%;
+      }
+      .radio-group {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      background: linear-gradient(90deg, #6ce08e, #96e07f);
+      color: #104010;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 20px 0;
+      animation: slideIn 0.5s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="scrollToSection('hero')">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42.5 11a7.5 7.5 0 1 1-15 0 7.501 7.501 0 0 1 15 0zM32 23v15m7-7h-14" stroke="#6ce08e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M3 55h58v6H3z" fill="#107010"/>
+      </svg>
+      Health Mart
+    </div>
+    <nav>
+      <a href="#services" onclick="scrollToSection('services')">Home</a>
+      <a href="#services" onclick="scrollToSection('services')">Services</a>
+      <a href="#reviews" onclick="scrollToSection('reviews')">Reviews</a>
+      <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+      <a href="#faqs" onclick="scrollToSection('faqs')">FAQs</a>
+    </nav>
+    <div class="contact-top" onclick="make
