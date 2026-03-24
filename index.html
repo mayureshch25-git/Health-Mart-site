@@ -963,10 +963,17 @@
         });
 
         // WhatsApp integration
-        document.querySelector('.btn-whatsapp').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://wa.me/918451017458?text=Hi, I need medicine delivery!', '_blank');
-        });
+document.querySelector('.btn-whatsapp').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const phone = '918451017458';   // ← Double-check this is correct!
+    const message = 'Hi, I need medicine delivery!';
+    
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    
+    window.open(url, '_blank');
+});
+        
     </script>
 </body>
 </html>
